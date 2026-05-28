@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicCare.API", "ClinicCare.API\ClinicCare.API.csproj", "{E5DFA306-B3C9-4609-88FF-EE6B50365FEF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicCare.BLL", "ClinicCare.BLL\ClinicCare.BLL.csproj", "{8A5A97C2-FA69-4644-A881-A07FDE1C02C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicCare.DAL", "ClinicCare.DAL\ClinicCare.DAL.csproj", "{BDEF8CFE-AA12-4461-A2C9-78351B22CE25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicCare.API", "ClinicCare.API\ClinicCare.API.csproj", "{7B5DE56C-B291-44E3-974F-2F822929DD03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,10 +12,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E5DFA306-B3C9-4609-88FF-EE6B50365FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5DFA306-B3C9-4609-88FF-EE6B50365FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5DFA306-B3C9-4609-88FF-EE6B50365FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5DFA306-B3C9-4609-88FF-EE6B50365FEF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A5A97C2-FA69-4644-A881-A07FDE1C02C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A5A97C2-FA69-4644-A881-A07FDE1C02C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5A97C2-FA69-4644-A881-A07FDE1C02C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,5 +20,9 @@ Global
 		{BDEF8CFE-AA12-4461-A2C9-78351B22CE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDEF8CFE-AA12-4461-A2C9-78351B22CE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDEF8CFE-AA12-4461-A2C9-78351B22CE25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5DE56C-B291-44E3-974F-2F822929DD03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5DE56C-B291-44E3-974F-2F822929DD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5DE56C-B291-44E3-974F-2F822929DD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5DE56C-B291-44E3-974F-2F822929DD03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

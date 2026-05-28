@@ -10,8 +10,4 @@
       <ProjectReference Include="..\ClinicCare.DAL\ClinicCare.DAL.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Dtos\" />
-    </ItemGroup>
-
 </Project>
