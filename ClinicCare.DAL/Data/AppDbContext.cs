@@ -9,6 +9,10 @@ public class AppDbContext:IdentityDbContext
     {
         
     }
+    public DbSet<Models.AppUser> AppUsers { get; set; } = null!;
+    public DbSet<Models.Patient.patient> Patients { get; set; } = null!;
+    public DbSet<Models.Appointment.appointment> Appointments { get; set; } = null!;
+    public DbSet<Models.MedicalRecord.medicalRecord> MedicalRecords { get; set; } = null!;
 
     override protected void OnModelCreating(ModelBuilder modelBuilder)
     {

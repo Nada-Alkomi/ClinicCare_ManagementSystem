@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lnpP7S0u4svTUdHY1VXR11Ec+0szliQapywzhB2QtWE=",
+  "Source": "ClinicCare.API",
+  "BasePath": "_content/ClinicCare.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

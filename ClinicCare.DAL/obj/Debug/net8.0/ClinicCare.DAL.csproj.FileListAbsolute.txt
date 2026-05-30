@@ -1,0 +1,15 @@
+D:\clinicare\ClinicCare.DAL\bin\Debug\net8.0\ClinicCare.DAL.deps.json
+D:\clinicare\ClinicCare.DAL\bin\Debug\net8.0\ClinicCare.DAL.runtimeconfig.json
+D:\clinicare\ClinicCare.DAL\bin\Debug\net8.0\ClinicCare.DAL.dll
+D:\clinicare\ClinicCare.DAL\bin\Debug\net8.0\ClinicCare.DAL.pdb
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.csproj.AssemblyReference.cache
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.AssemblyInfoInputs.cache
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.AssemblyInfo.cs
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.csproj.CoreCompileInputs.cache
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.sourcelink.json
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.dll
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\refint\ClinicCare.DAL.dll
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.pdb
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ClinicCare.DAL.genruntimeconfig.cache
+D:\clinicare\ClinicCare.DAL\obj\Debug\net8.0\ref\ClinicCare.DAL.dll

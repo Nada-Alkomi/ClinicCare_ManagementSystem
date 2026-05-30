@@ -1,17 +1,28 @@
 using Clinic.Care.DAL.Data;
 using Clinic.Care.DAL.Models;
 using ClinicCare.BLL.Services.AuthService;
+using ClinicCare.BLL.Services.RoleService;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString)); 
+
+
+
+
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+
 builder.Services.AddIdentity<AppUser,IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -34,10 +45,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 app.MapControllers();
-app.UseAuthentication();
+app.UseAuthentication(); 
 app.UseAuthorization();
 app.Run();
 

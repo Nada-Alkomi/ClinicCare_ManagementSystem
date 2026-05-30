@@ -1,0 +1,16 @@
+D:\clinicare\ClinicCare.BLL\bin\Debug\net8.0\ClinicCare.BLL.deps.json
+D:\clinicare\ClinicCare.BLL\bin\Debug\net8.0\ClinicCare.BLL.dll
+D:\clinicare\ClinicCare.BLL\bin\Debug\net8.0\ClinicCare.BLL.pdb
+D:\clinicare\ClinicCare.BLL\bin\Debug\net8.0\ClinicCare.DAL.dll
+D:\clinicare\ClinicCare.BLL\bin\Debug\net8.0\ClinicCare.DAL.pdb
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.csproj.AssemblyReference.cache
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.AssemblyInfoInputs.cache
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.AssemblyInfo.cs
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.csproj.CoreCompileInputs.cache
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.sourcelink.json
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCa.3CE1EC17.Up2Date
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.dll
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\refint\ClinicCare.BLL.dll
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ClinicCare.BLL.pdb
+D:\clinicare\ClinicCare.BLL\obj\Debug\net8.0\ref\ClinicCare.BLL.dll
