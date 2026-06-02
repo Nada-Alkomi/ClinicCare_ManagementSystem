@@ -44,7 +44,7 @@ public class RoleService:IRoleService
     }
     return new CommonResponse("role deleted successfully", true);
   }
-  public async Task<IEnumerable<string>> GetAllRolesAsync() // ضفنا كلمة async هنا
+  public async Task<IEnumerable<string>> GetAllRolesAsync() 
   {
     var roles = _roleManager.Roles.Select(r => r.Name ?? "").ToList();
     return roles; 

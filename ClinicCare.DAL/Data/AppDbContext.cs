@@ -1,21 +1,28 @@
+using Clinic.Care.DAL.Models.MedicalRecord;
+using ClinicCare.DAL.Models;
+using ClinicCare.DAL.Models.Appointment;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinic.Care.DAL.Data;
+namespace ClinicCare.DAL.Data;
 
-public class AppDbContext:IdentityDbContext
+public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
     {
-        
     }
-    public DbSet<Models.AppUser> AppUsers { get; set; } = null!;
-    public DbSet<Models.Patient.patient> Patients { get; set; } = null!;
-    public DbSet<Models.Appointment.appointment> Appointments { get; set; } = null!;
-    public DbSet<Models.MedicalRecord.medicalRecord> MedicalRecords { get; set; } = null!;
 
-    override protected void OnModelCreating(ModelBuilder modelBuilder)
+    public DbSet<Appointment> Appointments { get; set; } = null!;
+
+    public DbSet<MedicalRecord> MedicalRecords { get; set; } = null!;
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(AppDbContext).Assembly);
     }
 }

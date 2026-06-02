@@ -6,7 +6,7 @@ public class RegistrationDtos
 {
     [Required]
     [MaxLength(50,ErrorMessage ="Name must be less than 50 characters")]
-    public string FullName { get; set; }=string.Empty;
+    public string Name { get; set; }=string.Empty;
     [Required]
     [EmailAddress(ErrorMessage ="Please enter email address")]
     public string Email { get; set; }=string.Empty;
@@ -20,7 +20,7 @@ public class RegistrationDtos
     public string ConfirmPassword { get; set; }=string.Empty;
     [Required]
     [MaxLength(100)]
-    public string Address { get; set; }=string.Empty;
+    public string Gender { get; set; }=string.Empty;
     [Required]
     [Phone]
     [RegularExpression(@"^01[0125][0-9]{8}$", ErrorMessage = "Please enter a valid Egyptian phone number")]

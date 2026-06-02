@@ -1,7 +1,9 @@
-using Clinic.Care.DAL.Data;
-using Clinic.Care.DAL.Models;
+
+using ClinicCare.DAL.Models;
 using ClinicCare.BLL.Services.AuthService;
 using ClinicCare.BLL.Services.RoleService;
+using ClinicCare.DAL.Data;
+using ClinicCare.DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Conn
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 
-builder.Services.AddIdentity<AppUser,IdentityRole>(options =>
+builder.Services.AddIdentity<User,IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;

@@ -2,8 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Clinic.Care.DAL.Models;
-using ClinicCare.BLL.Dtos;
-using Microsoft.AspNetCore.Identity;
+using ClinicCare.DAL.Models; // اتأكدنا من الـ Namespace الصح وشيلنا المتكرر
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,40 +10,39 @@ namespace ClinicCare.BLL.Handlers;
 
 public class TokenHandlers
 {
-    public static async Task<string> CreateTokenAsync(AppUser user, IConfiguration configuration, UserManager<AppUser> _userManager)
+    public static async Task<string> CreateTokenAsync(User user, IConfiguration configuration)
     {
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.Id),
-            new Claim(ClaimTypes.Name, user.FullName),
-            new Claim(ClaimTypes.Email, user.Email!),
-        };
-
-        var userRoles = await _userManager.GetRolesAsync(user);
-        foreach (var role in userRoles)
-        {
-            claims.Add(new Claim(ClaimTypes.Role, role));
-        }
-
-        var keyInBytes = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!);
-        var key = new SymmetricSecurityKey(keyInBytes);
         
-        var issuer = configuration["Jwt:Issuer"]!.ToString();
-        var audience = configuration["Jwt:Audience"]!.ToString();
-        var expireTime = configuration["Jwt:ExpireTime"]!.ToString();
+        return await Task.Run(() =>
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), 
+                new Claim(ClaimTypes.Name, user.Name ?? user.UserName ?? "Unknown"),
+                new Claim(ClaimTypes.Email, user.Email!),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) 
+            };
 
-       
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-     
-        var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(double.Parse(expireTime)),
-            signingCredentials: creds
-        );
-        
-        var tokenHandler = new JwtSecurityTokenHandler();
-        return tokenHandler.WriteToken(token);
+            var keyInBytes = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!);
+            var key = new SymmetricSecurityKey(keyInBytes);
+            
+            var issuer = configuration["Jwt:Issuer"]!.ToString();
+            var audience = configuration["Jwt:Audience"]!.ToString();
+            var expireTime = double.Parse(configuration["Jwt:ExpireTime"]!);
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+         
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(expireTime),
+                signingCredentials: creds
+            );
+            
+            var tokenHandler = new JwtSecurityTokenHandler();
+            return tokenHandler.WriteToken(token);
+        });
     }
 }

@@ -1,4 +1,5 @@
 using Clinic.Care.DAL.Models;
+using ClinicCare.DAL.Models; 
 using ClinicCare.BLL.Dtos.CommonResponse;
 using ClinicCare.BLL.Dtos.User;
 using ClinicCare.BLL.Handlers;
@@ -9,9 +10,10 @@ namespace ClinicCare.BLL.Services.AuthService;
 
 public class AuthService : IAuthService
 {
-    private readonly UserManager<AppUser> _userManager;
+    private readonly UserManager<User> _userManager;
     private readonly IConfiguration _configuration;
-    public AuthService(UserManager<AppUser> userManager,IConfiguration configuration)
+
+    public AuthService(UserManager<User> userManager, IConfiguration configuration)
     {
         _userManager = userManager;
         _configuration = configuration;
@@ -31,43 +33,38 @@ public class AuthService : IAuthService
             return new CommonResponse("Invalid email or password", false);
         }
 
-        var Token =await TokenHandlers.CreateTokenAsync(user, _configuration, _userManager);
-        return new CommonResponse("Login successful", true,null, Token);
-}
+       
+        var token = await TokenHandlers.CreateTokenAsync(user, _configuration);
+        
+        return new CommonResponse("Login successful", true, null, token);
+    }
 
     public async Task<CommonResponse> RegisterAsync(RegistrationDtos dto)
     {
-        var UserExist = await _userManager.FindByEmailAsync(dto.Email);
-        if (UserExist is not null)
+        var userExist = await _userManager.FindByEmailAsync(dto.Email);
+        if (userExist is not null)
         {
-            return new CommonResponse("there is problem while your registration", false);
+            return new CommonResponse("Email is already registered", false); 
         }
-
-        var newUser = new AppUser
+        var newUser = new User
         {
-            FullName = dto.FullName,
+            Name = dto.Name,
             Email = dto.Email,
-            UserName = dto.Email,
-            Address = dto.Address,
-            PhoneNumber = dto.PhoneNumber
+            UserName = dto.Email, 
+            Gender = dto.Gender,
+            PhoneNumber = dto.PhoneNumber, 
 
+          
+            Role = UserRole.Patient 
         };
+
         var result = await _userManager.CreateAsync(newUser, dto.Password);
         if (!result.Succeeded)
         {
             var errors = result.Errors.Select(e => e.Description).ToList();
-            return new CommonResponse("there is problem while your registration", false, errors: errors);
+            return new CommonResponse("There is a problem while your registration", false, errors: errors);
         }
-
-        var AddToRoleResult = await _userManager.AddToRoleAsync(newUser, "User");
-        if (!AddToRoleResult.Succeeded)
-        {
-            var errors = AddToRoleResult.Errors.Select(e => e.Description).ToList();
-            return new CommonResponse("there is problem while your registration", false);
-        }
-
-        return new CommonResponse("your registration is successfull", true);
-
-
+        
+        return new CommonResponse("Your registration is successful", true);
     }
 }
