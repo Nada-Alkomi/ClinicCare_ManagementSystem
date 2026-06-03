@@ -6,8 +6,8 @@ namespace ClinicCare.BLL.Services.RoleService;
 
 public class RoleService:IRoleService
 {
-  private readonly RoleManager<IdentityRole> _roleManager;
-  public RoleService(RoleManager<IdentityRole> roleManager)
+  private readonly RoleManager<IdentityRole<Guid>> _roleManager;
+  public RoleService(RoleManager<IdentityRole<Guid>> roleManager)
   {
     _roleManager = roleManager;
   }
@@ -19,7 +19,7 @@ public class RoleService:IRoleService
     {
       return new CommonResponse("Role already exists", false);
     }
-    var result = await _roleManager.CreateAsync(new IdentityRole(roleName));
+    var result = await _roleManager.CreateAsync(new IdentityRole<Guid>(roleName));
     if (!result.Succeeded)
     {
       var errors=result.Errors.Select(e=>e.Description).ToList();

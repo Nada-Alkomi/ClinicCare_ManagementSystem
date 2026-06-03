@@ -5,22 +5,28 @@ using ClinicCare.DAL.Models.Appointment;
 
 namespace ClinicCare.DAL.ModelConfigurations;
 
-public class AppointmentConfiguration : IEntityTypeConfiguration<Appointment>
-{
-    public void Configure(EntityTypeBuilder<Appointment> modelbuilder)
+
+    public class AppointmentConfiguration : IEntityTypeConfiguration<Appointment>
     {
-        modelbuilder.Property(a => a.AppointmentDate)
-            .HasColumnType("datetime2");
-        modelbuilder.Property(a => a.QueueNumber)
-            .IsRequired();
-        modelbuilder.Property(a => a.Status)
-            .HasConversion<string>();
-        modelbuilder.HasOne(a => a.Patient)
-            .WithMany(p => p.Appointments)
-            .HasForeignKey(a => a.PatientId)
-            .OnDelete(DeleteBehavior.Restrict);
-            
-        
+        public void Configure(EntityTypeBuilder<Appointment> builder)
+        {
+            builder.Property(a => a.AppointmentDate)
+                .HasColumnType("datetime2")
+                .IsRequired();
+
+            builder.Property(a => a.QueueNumber)
+                .IsRequired();
+
+            builder.Property(a => a.Status)
+                .HasConversion<string>();
+
+            builder.Property(a => a.IsFollowUpReminderSent)
+                .HasDefaultValue(false);
+
+            builder.HasOne(a => a.Patient)
+                .WithMany(u => u.Appointments)
+                .HasForeignKey(a => a.PatientId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 
-}

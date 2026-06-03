@@ -28,12 +28,8 @@ public class User : IdentityUser<Guid>
     
     public virtual ICollection<Appointment.Appointment> Appointments { get; set; }
         = new List<Appointment.Appointment>();
-    
-    
-    public virtual ICollection<MedicalRecord> PatientMedicalRecords { get; set; }
-        = new List<MedicalRecord>();
 
-    public virtual ICollection<MedicalRecord> DoctorMedicalRecords { get; set; }
-        = new List<MedicalRecord>();
    
+    public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
+        = new List<MedicalRecord>();
 }

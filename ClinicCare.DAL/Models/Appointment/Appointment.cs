@@ -11,12 +11,10 @@ public class Appointment:BaseModel<Guid>
 
     public int QueueNumber { get; set; }
 
-    public AppointmentStatus Status { get; set; }
+    public AppointmentStatus Status { get; set; }= AppointmentStatus.Pending;
 
     public bool IsFollowUpReminderSent { get; set; }
-
-    public DateTime CreatedAt { get; set; }
-
+    
 
     public virtual Guid PatientId { get; set; }
 

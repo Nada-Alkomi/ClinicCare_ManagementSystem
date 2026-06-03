@@ -9,32 +9,29 @@ public class RoleController : ControllerBase
 {
     private readonly IRoleService _roleService;
 
-
     public RoleController(IRoleService roleService)
     {
         _roleService = roleService;
     }
 
     [HttpPost("add")]
-    public async Task<IActionResult> AddRoleDtoAsync([FromBody] string roleName)
+    public async Task<IActionResult> AddRoleAsync(string roleName)
     {
         var response = await _roleService.AddRoleAsync(roleName);
+
         if (!response.IsSuccess)
-        {
             return BadRequest(response);
-        }
 
         return Ok(response);
     }
 
     [HttpDelete("remove")]
-    public async Task<IActionResult> RemoveRoleAsync([FromBody] string roleName)
+    public async Task<IActionResult> RemoveRoleAsync(string roleName)
     {
         var response = await _roleService.RemoveRoleAsync(roleName);
+
         if (!response.IsSuccess)
-        {
             return BadRequest(response);
-        }
 
         return Ok(response);
     }
