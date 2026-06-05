@@ -5,6 +5,11 @@ namespace ClinicCare.BLL.Services.AuthService;
 
 public interface IAuthService
 {
-    public Task<CommonResponse> RegisterAsync(RegistrationDtos dto);
-   public Task<CommonResponse> LoginAsync(LoginDtos dto);
+    Task<CommonResponse> RegisterPatientAsync(RegistrationDtos dto);
+
+    Task<CommonResponse> RegisterDoctorAsync(RegistrationDtos dto);
+
+    Task<CommonResponse> RegisterAdminAsync(RegistrationDtos dto);
+
+    Task<CommonResponse> LoginAsync(LoginDtos dto);
 }

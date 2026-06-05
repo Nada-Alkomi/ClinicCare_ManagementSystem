@@ -32,4 +32,7 @@ public class User : IdentityUser<Guid>
    
     public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
         = new List<MedicalRecord>();
+    
+    public  virtual ICollection<Notification.Notification> Notifications { get; set; }
+        = new List<Notification.Notification>();
 }

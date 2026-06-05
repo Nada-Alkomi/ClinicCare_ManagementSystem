@@ -14,7 +14,7 @@ public class RegistrationDtos
     [Required]
     [MinLength(6,ErrorMessage ="Password must be at least 6 characters")]
     public string Password { get; set; }=string.Empty;
-    
+    public DateTime BirthDate { get; set; }
     [Required]
     [Compare(nameof(Password),ErrorMessage ="Password and confirm password must match")]
     public string ConfirmPassword { get; set; }=string.Empty;

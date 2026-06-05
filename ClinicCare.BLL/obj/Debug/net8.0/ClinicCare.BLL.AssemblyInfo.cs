@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClinicCare.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81cda777732bf0dffe01019f1483e8c458cfbd07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbbe462e218abc27e6dc749cb39ed0ced581c2c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClinicCare.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClinicCare.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
